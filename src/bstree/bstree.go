@@ -2,39 +2,39 @@
 package bstree
 
 type Node struct {
-	left  *Node
-	right *Node
-	value int
+	Left  *Node
+	Right *Node
+	Val   int
 }
 
 type Tree struct {
-	root *Node
+	Root *Node
 }
 
-func (tree *Tree) insert(value int) {
-	if tree.root == nil {
-		tree.root = NewNode(value)
+func (tree *Tree) Insert(value int) {
+	if tree.Root == nil {
+		tree.Root = NewNode(value)
 		return
 	}
-	tree.root.insert(value)
+	tree.Root.Insert(value)
 }
 
 func NewNode(value int) *Node {
-	return &Node{left: nil, right: nil, value: value}
+	return &Node{Left: nil, Right: nil, Val: value}
 }
 
-func (n *Node) insert(value int) {
-	if value < n.value {
-		if n.left == nil {
-			n.left = NewNode(value)
+func (n *Node) Insert(value int) {
+	if value < n.Val {
+		if n.Left == nil {
+			n.Left = NewNode(value)
 		} else {
-			n.left.insert(value)
+			n.Left.Insert(value)
 		}
 	} else {
-		if n.right == nil {
-			n.right = NewNode(value)
+		if n.Right == nil {
+			n.Right = NewNode(value)
 		} else {
-			n.right.insert(value)
+			n.Right.Insert(value)
 		}
 	}
 }
