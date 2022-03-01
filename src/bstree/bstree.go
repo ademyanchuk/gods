@@ -1,38 +1,38 @@
 // Binary Search Tree Implementation
 package bstree
 
-type node struct {
-	left  *node
-	right *node
+type Node struct {
+	left  *Node
+	right *Node
 	value int
 }
 
 type Tree struct {
-	root *node
+	root *Node
 }
 
 func (tree *Tree) insert(value int) {
 	if tree.root == nil {
-		tree.root = newNode(value)
+		tree.root = NewNode(value)
 		return
 	}
 	tree.root.insert(value)
 }
 
-func newNode(value int) *node {
-	return &node{left: nil, right: nil, value: value}
+func NewNode(value int) *Node {
+	return &Node{left: nil, right: nil, value: value}
 }
 
-func (n *node) insert(value int) {
+func (n *Node) insert(value int) {
 	if value < n.value {
 		if n.left == nil {
-			n.left = newNode(value)
+			n.left = NewNode(value)
 		} else {
 			n.left.insert(value)
 		}
 	} else {
 		if n.right == nil {
-			n.right = newNode(value)
+			n.right = NewNode(value)
 		} else {
 			n.right.insert(value)
 		}
